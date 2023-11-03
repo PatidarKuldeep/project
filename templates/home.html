@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: 'Ubuntu', sans-serif;
+      }
+      nav{
+        position:relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        transition: all 0.4s ease;
+      }
+      .nav-content{
+        height: 100%;
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo a{
+        font-style: italic  ;
+        font-weight: 500;
+        font-size: 35px;
+        color: #4070f4;
+      }
+      .nav-links{
+        display:flex;
+        margin-left: 650px;
+      }
+      .nav-links li{
+        list-style: none;
+        margin: 0 8px;
+      }
+      li a{
+        text-decoration: none;
+        color: #0E2431;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 10px 4px;
+        transition: all 0.3s ease;
+      }
+      li a:hover{
+         color: #4070f4;
+       }
+      
+      
+      
+        .b{
+              align-items:center;
+              padding: 15px 25px;
+              border: 0;
+              outline: 0;
+              border-radius: 5px;
+              background: #f5168d;
+              color:black;
+              cursor: pointer;
+          }
+
+          
+
+
+
+          
+
+.boxx{
+        position:fixed;
+        padding: 50px 0;
+        display: block;
+        align-items:flex-start;
+        height: 72vh;
+        height: 400px;
+    }
+    .text{
+        font-size:xx-large;
+        font-style: italic;
+        text-align: center;
+        margin: 80px;
+        width: 100%;
+    }
+.boxx1{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9SeaGUTkh-pk6La8Xahjj5_lMyA2ZHAzRyp_cdLEeXBWFtYxTa-vSrepArnuxg1xqSQU&usqp=CAU);
+        background-size: cover;
+        background-position: top center;
+        align-items:flex-start;
+        padding: 0 150px ;
+        height: 40vh;
+    }
+    .boxx2{
+        background-image: url(https://i.pinimg.com/736x/a2/45/24/a24524435e632061580871567bcc8e9d.jpg);
+        background-size: cover;
+        background-position: top left;
+        align-items:flex-start;
+        padding: 0 200px;
+        height: 40vh;
+        margin: 40px;
+    }
+    .boxx3{
+        background-image: url(https://static.boredpanda.com/blog/wp-content/uploads/2019/04/famous-people-inspiring-quotes-2b-5cb436fcd0f39__700.jpg);
+        background-size: cover;
+        background-position: center;
+        align-items: center;
+        padding: 0 200px;
+        height: 40vh;
+        margin: 40px;
+    }
+    .cont{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+
+</style>
+
+<body class="background">
+    <div>
+        <nav>
+            <div class="nav-content">
+              <div class="logo">
+                <a href="{% url 'home' %}"><b>Jobs.</b></a>
+              </div>
+              <ul class="nav-links">
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+              </ul>
+              <div class="navbar-nav ml-auto">
+                <a class="b" href="{% url 'signin' %}">Sign In</a>
+                <a class="b" href="{% url 'signup' %}">Sign Up</a>
+            </div>
+            
+            </div>
+            
+          </nav>
+        
+
+
+    </div>
+    <div class="boxx">
+        <form action="">
+        <h2 class="text">~Make your dream career a reality.~</h2>
+          <div class="cont">
+        <div class="boxx2"></div>
+        <div class="boxx1"></div>
+        <div class="boxx3"></div>
+          </div>
+        </form>
+    </div>
+    
+</body>

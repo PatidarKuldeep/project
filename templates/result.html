@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: 'Ubuntu', sans-serif;
+        }
+        nav {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            transition: all 0.4s ease;
+        }
+        .nav-content {
+            height: 100%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo a {
+            font-weight: 500;
+            font-size: 35px;
+            color: #4070f4;
+        }
+        .nav-links {
+            display: flex;
+        }
+        .nav-links li {
+            list-style: none;
+            margin: 0 8px;
+        }
+        li a {
+            text-decoration: none;
+            color: #0E2431;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 10px 4px;
+            transition: all 0.3s ease;
+        }
+        li a:hover {
+            color: #4070f4;
+        }
+        .category-dropdown {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .category-menu {
+            display: none;
+            position: absolute;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .category-dropdown:hover .category-menu {
+            display: block;
+        }
+        .category-menu li {
+            padding: 5px;
+            text-align: start;
+        }
+        .category-menu a {
+            font-size: medium;
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+        .category-menu a:hover {
+            background-color: #f0f0f0;
+        }
+        .action {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+        }
+        .profile {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .profile img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .menu {
+            position: absolute;
+            top: 70px;
+            right: 10px;
+            padding: 0px 20px;
+            background-color: rgba(245, 222, 179, 0.636);
+            width: 150px;
+            border-radius: 15px;
+            transition: 0.5s;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .action:hover .menu {
+            visibility: visible;
+            opacity: 1;
+        }
+        .menu.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .menu h3 {
+            width: 10%;
+            text-align: center;
+            font-size: 18px;
+            padding: 20px 0;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 1.2em;
+        }
+        .menu ul li a {
+            display: flex;
+            font-size: 16px;
+            text-decoration: none;
+            color: #1c1c1c;
+        }
+        .menu ul {
+            padding: 0;
+            text-align: left;
+        }
+        .menu ul li {
+            list-style: none;
+            text-align: left;
+        }
+        .h2 {
+            font-size: large;
+        }
+        ul li a:hover {
+            color: #4070f4;
+        }
+        .action .category-menu {
+            background-color: wheat;
+        }
+        
+
+
+
+
+  .b{
+        align-items: center;
+        padding: 7px 15px;
+        border: 0;
+        outline: 0;
+        border-radius: 5px;
+        background: #f5168d;
+        color:black;
+        cursor: pointer;
+    }
+
+
+
+
+        select, button {
+            padding-left: 25px;
+            height: 40px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        select {
+            margin-left: 20px;
+            width: 15%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 5%;
+            background: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .description {
+            font-size: smaller;
+            text-align: left;
+        }
+
+        .joblocation {
+            font-size: 15px;
+            text-align: left;
+        }
+        form{
+            margin-left: 180px;
+        }
+        .button{
+        align-items:center;
+        padding: 4px 10px;
+        border-radius: 5px;
+        background: #f5168d;
+        color:black;
+        cursor: pointer;
+        }
+    </style>
+</head>
+<body class="background">
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                <a href="{% url 'homepage' %}">Jobs.</a>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <div class="category-dropdown">
+                        <a href="#" id="categoryDropdown">Job Applications</a>
+                        <ul class="category-menu">
+                            <li><a href="{% url 'job_applications_by_category' 'IT' %}">IT</a></li>
+                            <li><a href="{% url 'job_applications_by_category' 'HR' %}">HR</a></li>
+                            <li><a href="{% url 'job_applications_by_category' 'Sales' %}">Sales</a></li>
+                            <li><a href="{% url 'job_applications_by_category' 'Marketing' %}">Marketing</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="{% url 'about1' %}">About</a></li>
+                <li><a href="{% url 'contact1' %}">Contact</a></li>
+                <a href="{% url 'logout' %}">Logout</a>
+            </ul>
+        </div>
+        <div class="action" onmouseenter="menuToggle();" onmouseleave="menuToggle();">
+            <div class="profile">
+                <img src="https://thumbs.dreamstime.com/b/person-icon-vector-symbol-white-background-eps-130029121.jpg" alt="">
+            </div>
+            <div class="menu">
+                <h3>~Welcome~</h3>
+                <h2 class="h2">{{request.user.username }} <hr></h2>
+                <ul>
+                    <li><a href="{% url 'profile' %}">&RightTriangleBar;My Profile</a></li>
+                    <li>
+                        <div class="category-dropdown">
+                            <a href="#" id="categoryDropdown">&RightTriangleBar;Job Applications</a>
+                            <ul class="category-menu">
+                                <li><a href="{% url 'job_applications_by_category' 'IT' %}">IT</a></li>
+                                <li><a href="{% url 'job_applications_by_category' 'HR' %}">HR</a></li>
+                                <li><a href="{% url 'job_applications_by_category' 'Sales' %}">Sales</a></li>
+                                <li><a href="{% url 'job_applications_by_category' 'Marketing' %}">Marketing</a></li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="{% url 'logout' %}">&RightTriangleBar;Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <form action="" method="post">
+        <script>
+            function menuToggle() {
+                const toggleMenu = document.querySelector('.menu');
+                toggleMenu.classList.toggle('active');
+            }
+        </script>
+    </form>
+    <center><h1 class="h1">Field: {{job_category}}</h1></center>
+    <br><br>
+    <div class="container">
+        <div class="row">
+            {% for i in category %}
+            <div class="col-md-4">
+                <p class="card-footer text-muted">{{i.categoryname}}</p>
+                <div class="card text-center mb-4">
+                    <div class="">
+                        {{ i.job_title }}
+                    </div>
+                    <div class="card-body">
+                        <h6 class="title">{{i.job_experience}}<br>{{i.job_salary}}</h6>
+                        <p class="description">{{i.job_description|linebreaksbr}}</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <h1 class="joblocation">{{i.job_location}}
+                        <a href="{% url 'job_application_form' job_id=i.id %}" class="button">Apply</a></h1>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <a href="{% url 'homepage' %}">Back to Home</a>
+</body>
+</html>

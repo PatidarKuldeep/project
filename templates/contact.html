@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: 'Ubuntu', sans-serif;
+      }
+      .background{
+        background-color:white;
+      }
+      .background nav{
+        background-color:whitesmoke;
+      }
+      nav{
+        position:relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        transition: all 0.4s ease;
+      }
+      .nav-content{
+        height: 100%;
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo a{
+        font-style: italic  ;
+        font-weight: 500;
+        font-size: 35px;
+        color: #4070f4;
+      }
+      .nav-links{
+        display:flex;
+        margin-left: 650px;
+      }
+      .nav-links li{
+        list-style: none;
+        margin: 0 8px;
+      }
+      li a{
+        text-decoration: none;
+        color: #0E2431;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 10px 4px;
+        transition: all 0.3s ease;
+      }
+      li a:hover{
+         color: #4070f4;
+       }
+      
+      
+      
+        .b{
+              align-items:center;
+              padding: 15px 25px;
+              border: 0;
+              outline: 0;
+              border-radius: 5px;
+              background: #f5168d;
+              color:black;
+              cursor: pointer;
+          }
+
+          
+          .about{
+            position: relative;
+            width: 450px;
+            height: 500px;
+            background: #1c1c1c;
+            border-radius: 8px;
+            margin: 140px 550px;
+        }
+        .about form{
+            position: absolute;
+            inset:4px;
+            background: rgba(128, 128, 128, 0.638);
+            padding: 4px 40px;
+            display: flex;
+            flex-direction: column; 
+        }
+        .c{
+            font-weight:10;
+            color: rgba(255, 255, 255, 0.841);
+        }
+        .c0{
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.841);
+            font-weight: 10;
+            font-size:large;
+            margin-top: 0;
+        }
+        .c1{
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.841);
+            font-weight: 10;
+            font-size:smaller;
+            margin-top: 0;
+            font-weight: 350;
+        }
+        
+
+</style>
+
+<body class="background">
+    <form action="" method="post"></form>
+    {% csrf_token %}
+    <div>
+        <nav>
+            <div class="nav-content">
+              <div class="logo">
+                <a href="{% url 'home' %}"><b>Jobs.</b></a>
+              </div>
+              <ul class="nav-links">
+                <li><a href="{% url 'about' %}">About</a></li>
+              </ul>
+              <div class="navbar-nav ml-auto">
+                <a class="b" href="{% url 'signin' %}">Sign In</a>
+                <a class="b" href="{% url 'signup' %}">Sign Up</a>
+            </div>    
+            </div>
+            
+          </nav>
+          <hr>
+          <div class="about">
+            <form action="">
+                <h1 class="c">Talk to Us:</h1>
+                <h1 class="c0">Call Us Toll Free: 1800­-102-5557</h1>
+                <h1 class="c1">
+                    (9.00 AM to 9.00PM IST) <br>
+                    International Customer Call: +91-120-4021100 <br>
+                    For Bulk queries call: 18001034477
+                </h1>
+    
+                <h1 class="c"><br> Chat with Us:</h1>
+                <h1 class="c1">
+                    Chat between (10 AM to 7 PM IST, Mon to Sun)     
+                </h1>
+    
+                <h1 class="c"><br> Location:</h1>
+                <h1 class="c1">
+                    8A/52 Block 8, Sant interprises, Hyderabad     
+                </h1>
+            </form>
+        </div>
+
+    </div>
+    
+    
+</body>
